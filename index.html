@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENT Report Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ENT Report Generator</h1>
+        <form id="reportForm">
+            <!-- Patient Information -->
+            <div class="patient-info">
+                <h2>KMC ENT REPORT</h2>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="patientName">Patient Name:</label>
+                        <input type="text" id="patientName" name="patientName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="ageGender">Age/Gender:</label>
+                        <input type="text" id="ageGender" name="ageGender" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="contactNo">Contact No:</label>
+                        <input type="text" id="contactNo" name="contactNo" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="visitDate">Visit Date:</label>
+                        <input type="date" id="visitDate" name="visitDate" required>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="referredDr">Referred Dr:</label>
+                        <input type="text" id="referredDr" name="referredDr" value="Dr Fadi Bitar" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="consultedDr">Consulted Dr:</label>
+                        <input type="text" id="consultedDr" name="consultedDr" value="Dr Fadi Bitar" readonly>
+                    </div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="procedure">Procedure:</label>
+                        <input type="text" id="procedure" name="procedure" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="medication">Medication:</label>
+                        <input type="text" id="medication" name="medication" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diagnostic Images -->
+            <div class="input-row">
+                <label for="diagnosticImages">Upload Diagnostic Images:</label>
+                <input type="file" id="diagnosticImages" name="diagnosticImages" accept="image/*" multiple required>
+            </div>
+
+            <!-- Generate Report Button -->
+            <div class="input-row">
+                <button type="button" onclick="generateReport()">Generate Report</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
