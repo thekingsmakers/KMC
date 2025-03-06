@@ -16,7 +16,7 @@ function generateReport() {
     const referredDr = document.getElementById('referredDr').value;
     const consultedDr = document.getElementById('consultedDr').value;
     const procedure = document.getElementById('procedure').value;
-    const Procedure Reports = document.getElementById('Procedure Reports').value;
+    const ProcedureReports = document.getElementById('ProcedureReports').value;
     const diagnosticImages = document.getElementById('diagnosticImages').files;
 
     // Validate form inputs
