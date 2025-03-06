@@ -20,7 +20,7 @@ function generateReport() {
     const diagnosticImages = document.getElementById('diagnosticImages').files;
 
     // Validate form inputs
-    if (!patientName || !ageGender || !contactNo || !visitDate || !procedure || !Procedure Reports || diagnosticImages.length === 0) {
+    if (!patientName || !ageGender || !contactNo || !visitDate || !procedure || !ProcedureReports || diagnosticImages.length === 0) {
         alert('Please fill all fields and upload diagnostic images.');
         return;
     }
