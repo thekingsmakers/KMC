@@ -69,7 +69,7 @@ function generateReport() {
         doc.text(`Consulted Dr: ${consultedDr}`, margin + 100, yOffset);
         yOffset += 10;
         doc.text(`Procedure: ${procedure}`, margin, yOffset);
-        doc.text(`Procedure Reports: ${Procedure Reports}`, margin + 100, yOffset);
+        doc.text(`Procedure Reports: ${ProcedureReports}`, margin + 100, yOffset);
 
         // Add horizontal line
         yOffset += 10;
