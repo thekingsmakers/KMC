@@ -16,11 +16,11 @@ function generateReport() {
     const referredDr = document.getElementById('referredDr').value;
     const consultedDr = document.getElementById('consultedDr').value;
     const procedure = document.getElementById('procedure').value;
-    const medication = document.getElementById('medication').value;
+    const Procedure Reports = document.getElementById('Procedure Reports').value;
     const diagnosticImages = document.getElementById('diagnosticImages').files;
 
     // Validate form inputs
-    if (!patientName || !ageGender || !contactNo || !visitDate || !procedure || !medication || diagnosticImages.length === 0) {
+    if (!patientName || !ageGender || !contactNo || !visitDate || !procedure || !Procedure Reports || diagnosticImages.length === 0) {
         alert('Please fill all fields and upload diagnostic images.');
         return;
     }
@@ -69,7 +69,7 @@ function generateReport() {
         doc.text(`Consulted Dr: ${consultedDr}`, margin + 100, yOffset);
         yOffset += 10;
         doc.text(`Procedure: ${procedure}`, margin, yOffset);
-        doc.text(`Medication: ${medication}`, margin + 100, yOffset);
+        doc.text(`Procedure Reports: ${Procedure Reports}`, margin + 100, yOffset);
 
         // Add horizontal line
         yOffset += 10;
