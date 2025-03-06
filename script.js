@@ -115,8 +115,9 @@ function generateReport() {
 
     // Add footer with timestamp
     const footerY = doc.internal.pageSize.getHeight() - 10;
+    const footerX = doc.internal.pageSize.getWidth() - margin; // Adjust the margin as needed
     doc.setFontSize(10);
-    doc.text(`Report generated on: ${new Date().toLocaleString()}`, margin, footerY);
+    doc.text(`Report generated on: ${new Date().toLocaleString()}`, footerX, footerY, { align: 'right' });
 
     // Save the PDF
     doc.save('ENT_Report.pdf');
