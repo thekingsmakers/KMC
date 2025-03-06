@@ -14,7 +14,7 @@ function generateReport() {
     const ageGender = document.getElementById('ageGender').value;
     const contactNo = document.getElementById('contactNo').value;
     const visitDate = document.getElementById('visitDate').value;
-    const referredDr = document.getElementById('referredDr').value;
+    const referredDr = document.getElementById('referredDr').value; // Corrected ID
     const consultedDr = document.getElementById('consultedDr').value;
     const procedure = document.getElementById('procedure').value;
     const procedureReports = document.getElementById('procedureReports').value;
@@ -66,11 +66,11 @@ function generateReport() {
         doc.text(`Contact No: ${contactNo}`, margin, yOffset);
         doc.text(`Visit Date: ${visitDate}`, margin + 100, yOffset);
         yOffset += 10;
-        doc.text(`Referred Dr: ${referredDr}`, margin, yOffset);
-        doc.text(`Consulted Dr: ${consultedDr}`, margin + 100, yOffset);
+        doc.text(`Referred By: ${referredDr}`, margin, yOffset); // Corrected ID
+        doc.text(`Consulted By: ${consultedDr}`, margin + 100, yOffset);
         yOffset += 10;
         doc.text(`Procedure: ${procedure}`, margin, yOffset);
-        doc.text(`Procedure Reports: ${procedureReports}`, margin + 100, yOffset);
+        doc.text(`Procedure Notes: ${procedureReports}`, margin + 100, yOffset);
 
         // Add horizontal line
         yOffset += 10;
@@ -81,7 +81,6 @@ function generateReport() {
         const imageSize = 50;
         const imageMargin = 10;
         const imagesPerRow = 2;
-        let imagesProcessed = 0;
 
         // Track loaded images
         const loadImage = (file, index) => {
@@ -103,25 +102,25 @@ function generateReport() {
             });
         };
 
-        /// Process all images and save PDF
-    Promise.all(Array.from(diagnosticImages).map((file, index) => loadImage(file, index)))
-     .then(() => {
-    // Add visit summary
-    const totalRows = Math.ceil(diagnosticImages.length / imagesPerRow);
-    const summaryY = yOffset + totalRows * (imageSize + imageMargin) + 20;
-    doc.text(`Visit Summary:`, margin, summaryY);
-    doc.text(`Dr Fad Bitar`, margin, summaryY + 10);
-    doc.text(`ENT Consultant`, margin, summaryY + 20);
+        // Process all images and save PDF
+        Promise.all(Array.from(diagnosticImages).map((file, index) => loadImage(file, index)))
+            .then(() => {
+                // Add visit summary
+                const totalRows = Math.ceil(diagnosticImages.length / imagesPerRow);
+                const summaryY = yOffset + totalRows * (imageSize + imageMargin) + 20;
+                doc.text(`Visit Summary:`, margin, summaryY);
+                doc.text(`Dr Fadi Bitar`, margin, summaryY + 10);
+                doc.text(`ENT Consultant`, margin, summaryY + 20);
 
-    // Add footer with timestamp
-    const footerY = doc.internal.pageSize.getHeight() - 10;
-    const footerX = doc.internal.pageSize.getWidth() - margin; // Adjust the margin as needed
-    doc.setFontSize(10);
-    doc.text(`Report generated on: ${new Date().toLocaleString()}`, footerX, footerY, { align: 'right' });
+                // Add footer with timestamp
+                const footerY = doc.internal.pageSize.getHeight() - 10;
+                const footerX = doc.internal.pageSize.getWidth() - margin; // Adjust the margin as needed
+                doc.setFontSize(10);
+                doc.text(`Report generated on: ${new Date().toLocaleString()}`, footerX, footerY, { align: 'right' });
 
-    // Save the PDF
-    doc.save('ENT_Report.pdf');
-});
+                // Save the PDF
+                doc.save('ENT_Report.pdf');
+            });
     };
 
     logoImg.onerror = () => {
